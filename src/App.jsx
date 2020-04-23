@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 import './styles/App.scss';
 import Menu from './components/Menu'
 import Home from "./screens/Home";
@@ -24,6 +24,7 @@ const Main = () => {
 			<Switch>
 				<Route path="/" component={Home} exact/>
 				<Route path="/setting" component={Setting} exact/>
+				<Redirect to="/" />
 			</Switch>
 		</div>
 	);
