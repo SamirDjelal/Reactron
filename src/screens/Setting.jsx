@@ -5,7 +5,9 @@ class Setting extends Component {
 	render() {
 		return (
 			<Fragment>
-				Setting
+				
+				<h2>Setting</h2>
+			
 			</Fragment>
 		);
 	}
