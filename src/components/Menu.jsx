@@ -6,12 +6,21 @@ class Menu extends Component {
 	render() {
 		return (
 			<div className="Menu">
+				
 				<Link to="/">
-					<div className={"item home " + (this.props.location.pathname === '/' && 'active')}/>
+					
+					<div className={"item home " + (this.props.location.pathname === '/' && 'active')}
+					     title="Home"/>
+				
 				</Link>
+				
 				<Link to="/setting">
-					<div className={"item setting " + (this.props.location.pathname === '/setting' && 'active')}/>
+					
+					<div className={"item setting " + (this.props.location.pathname === '/setting' && 'active')}
+					     title="Setting"/>
+				
 				</Link>
+			
 			</div>
 		);
 	}
