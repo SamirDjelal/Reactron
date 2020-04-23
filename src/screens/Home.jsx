@@ -12,11 +12,10 @@ class Home extends Component {
 	render() {
 		return (
 			<Fragment>
-				Reactron App <br/>
-				Val: {this.props.val} <br/>
-				<button onClick={() => this.props.inc(2)}>inc</button>
-				<br/>
-				<button onClick={() => this.props.dec(2)}>dec</button>
+				<h2>Reactron App</h2>
+				<code>Redux State `val`= {this.props.val}</code>
+				<br/><br/>
+				<button onClick={() => this.props.inc(2)}>inc</button> <button onClick={() => this.props.dec(2)}>dec</button>
 				<br/>
 			</Fragment>
 		);
