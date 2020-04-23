@@ -35,7 +35,7 @@ function createWindow() {
 		// frame: false,
 		// transparent: true,
 		// resizable: false,
-		icon: path.join(__dirname, 'app.png'),
+		icon: path.join(__dirname, (process.platform === 'darwin') ? 'app.icns' : 'app.png'),
 		// icon: path.join(__dirname, 'app.ico'),
 		webPreferences: {
 			nodeIntegration: true,
@@ -54,7 +54,7 @@ function createWindow() {
 	mainWindow.on('closed', () => mainWindow = null);
 	
 	if (process.platform !== 'darwin') global.appTray = new Tray(path.join(__dirname, '256x256.png'))
-	else global.appTray = new Tray(path.join(__dirname, '22x22.png'));
+	else global.appTray = new Tray(path.join(__dirname,(process.platform === 'darwin') ? '16x16.png' : '24x24.png'));
 	
 	const contextMenu = Menu.buildFromTemplate([
 		{
