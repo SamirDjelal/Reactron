@@ -1,5 +1,4 @@
 const electron = require('electron');
-// const {app, Menu, Tray, BrowserWindow, ipcMain} = require('electron');
 const {app, Menu, Tray, BrowserWindow} = require('electron');
 
 // const axios = require("axios");
@@ -8,22 +7,10 @@ const isDev = require('electron-is-dev');
 const globalShortcut = electron.globalShortcut
 
 
-// if (isDev) {
-//   BrowserWindow.addDevToolsExtension(
-//     path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/4.4.0_0')
-//   )
-// }
-
 app.allowRendererProcessReuse = true;
 let mainWindow;
 
 function createWindow() {
-	
-	// if (process.platform === 'darwin') BrowserWindow.addDevToolsExtension(require('path').join(__dirname, '../react-dev-tools'))
-	// console.log(mainWindow);
-	// if (mainWindow !== undefined) {
-	// }
-	
 	mainWindow = new BrowserWindow({
 		width: 950,
 		height: 620,
@@ -54,11 +41,11 @@ function createWindow() {
 	mainWindow.on('closed', () => mainWindow = null);
 	
 	if (process.platform !== 'darwin') global.appTray = new Tray(path.join(__dirname, '256x256.png'))
-	else global.appTray = new Tray(path.join(__dirname,(process.platform === 'darwin') ? '16x16.png' : '24x24.png'));
+	else global.appTray = new Tray(path.join(__dirname, (process.platform === 'darwin') ? '16x16.png' : '24x24.png'));
 	
 	const contextMenu = Menu.buildFromTemplate([
 		{
-			label: 'Reload', accelerator: 'CommandOrControl+Shift+R', click: () => {
+			label: 'Reload', click: () => {
 				mainWindow.reload();
 			}
 		}, {

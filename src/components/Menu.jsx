@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import '../styles/Menu.scss';
 import {Link} from 'react-router-dom';
 import {withRouter} from "react-router";
 
@@ -17,14 +16,5 @@ class Menu extends Component {
 		);
 	}
 }
-
-// export default withRouter(connect(
-// 	state => ({
-// 		val: state.app.val
-// 	}),
-// 	{
-// 		inc, dec
-// 	}
-// )(Menu));
 
 export default withRouter(Menu);

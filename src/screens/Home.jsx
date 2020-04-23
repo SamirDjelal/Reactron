@@ -15,20 +15,17 @@ class Home extends Component {
 				<h2>Reactron App</h2>
 				<code>Redux State `val`= {this.props.val}</code>
 				<br/><br/>
-				<button onClick={() => this.props.inc(2)}>inc</button> <button onClick={() => this.props.dec(2)}>dec</button>
+				<button onClick={() => this.props.inc(2)}>inc</button>
+				<button onClick={() => this.props.dec(2)}>dec</button>
 				<br/>
 			</Fragment>
 		);
 	}
 }
 
-// export default Home;
-
 export default withRouter(connect(
 	state => ({
 		val: state.app.val
 	}),
-	{
-		inc, dec
-	}
+	{inc, dec}
 )(Home));
