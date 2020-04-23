@@ -1,0 +1,11 @@
+.App {
+	display: flex;
+	height: 100%;
+
+}
+.Main {
+	width: calc(100% - 60px);
+	height: 100%;
+	background-color: #fff;
+	padding: 10px;
+}

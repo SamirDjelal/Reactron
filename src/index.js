@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.css';
+import './styles/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
 import store from './store/store';
+import {BrowserRouter as Router} from 'react-router-dom';
+
 
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<App/>
+			<Router>
+				<App/>
+			</Router>
 		</Provider>
 	</React.StrictMode>,
 	document.getElementById('root')
@@ -19,4 +23,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 // serviceWorker.unregister();
-serviceWorker.register();
+serviceWorker.unregister();
