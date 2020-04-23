@@ -29,6 +29,17 @@ code {
 
 }
 
-a{
+a {
 	text-decoration: none;
+}
+
+
+::selection {
+	background: #c9e3ff; /* WebKit/Blink Browsers */
+	//color: #fff;
+}
+
+::-moz-selection {
+	background: #c9e3ff; /* Gecko Browsers */
+	//color: #fff;
 }

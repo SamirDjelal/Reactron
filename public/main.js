@@ -1,7 +1,6 @@
-
 const electron = require('electron');
 // const {app, Menu, Tray, BrowserWindow, ipcMain} = require('electron');
-const {app, BrowserWindow} = require('electron');
+const {app, Menu, Tray, BrowserWindow} = require('electron');
 
 // const axios = require("axios");
 const path = require('path');
@@ -54,21 +53,29 @@ function createWindow() {
 	mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`).then(r => console.log(r));
 	mainWindow.on('closed', () => mainWindow = null);
 	
-	// if (process.platform !=='darwin') global.appTray = new Tray(path.join(__dirname, '256x256.png'))
-	// else global.appTray = new Tray(path.join(__dirname, '22x22.png'));
-	//
-	// const contextMenu = Menu.buildFromTemplate([
-	//   { label: 'Hide', click: (e) => { mainWindow.hide(); } },
-	//   { label: 'Show', click: (e) => { mainWindow.show();  mainWindow.focus(); } },
-	//   { label: 'Quit', role: 'quit' }
-	// ])
-	// global.appTray.setContextMenu(contextMenu)
-	//
+	if (process.platform !== 'darwin') global.appTray = new Tray(path.join(__dirname, '256x256.png'))
+	else global.appTray = new Tray(path.join(__dirname, '22x22.png'));
 	
-	globalShortcut.register('f5', function () {
-		console.log('f5 is pressed')
-		mainWindow.reload()
-	})
+	const contextMenu = Menu.buildFromTemplate([
+		{
+			label: 'Reload', accelerator: 'CommandOrControl+Shift+R', click: () => {
+				mainWindow.reload();
+			}
+		}, {
+			label: 'Hide', click: () => {
+				mainWindow.hide();
+			}
+		}, {
+			label: 'Show', accelerator: '', click: () => {
+				mainWindow.show();
+				mainWindow.focus();
+			}
+		},
+		{label: 'Quit', role: 'quit'}
+	])
+	global.appTray.setContextMenu(contextMenu)
+	
+	
 	globalShortcut.register('CommandOrControl+R', function () {
 		console.log('CommandOrControl+R is pressed')
 		mainWindow.reload()
