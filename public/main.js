@@ -1,3 +1,7 @@
+// import installExtension, {REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS} from 'electron-devtools-installer';
+const {default: installExtension, REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS} = require('electron-devtools-installer');
+
+
 const electron = require('electron');
 // const {app, Menu, Tray, BrowserWindow, ipcMain} = require('electron');
 const {app, BrowserWindow} = require('electron');
@@ -72,7 +76,21 @@ function createWindow() {
 		mainWindow.reload()
 	})
 	
-	
+	if (isDev) {
+		try {
+			installExtension(REACT_DEVELOPER_TOOLS).then((name) => {
+				console.log(`Added Extension:  ${name}`);
+			}).catch((err) => {
+				console.log('An error occurred: ', err)
+			});
+			installExtension(REDUX_DEVTOOLS).then((name) => {
+				console.log(`Added Extension:  ${name}`);
+			}).catch((err) => {
+				console.log('An error occurred: ', err)
+			});
+		} catch (e) {
+		}
+	}
 }
 
 app.on('ready', createWindow);
@@ -92,9 +110,9 @@ app.on('activate', () => {
 	if (mainWindow === null) {
 		createWindow();
 	}
+	
+	
 });
 
-// if (isDev) {
-//   app.setAppUserModelId('com.samirdjelal.the_movie');
-// }
+// if (isDev) { app.setAppUserModelId('com.samirdjelal.the_movie'); }
 

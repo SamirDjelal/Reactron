@@ -20,6 +20,7 @@
 		"axios": "^0.19.2",
 		"cross-env": "^7.0.2",
 		"electron": "^8.2.3",
+		"electron-devtools-installer": "^3.0.0",
 		"electron-is-dev": "^1.2.0",
 		"node-sass": "^4.13.1",
 		"react": "^16.13.1",
