@@ -42,10 +42,17 @@
 		"build": "react-scripts build",
 		"obfuscate": "javascript-obfuscator build/main.js --output build/main.js --compact true --self-defending false",
 		"pack-all": "electron-builder -mwl -c.extraMetadata.main=build/main.js -c.mac.identity=null",
-		"pack-win-32bit": "electron-builder --windows portable nsis zip --ia32 -c.extraMetadata.main=build/main.js",
-		"pack-win-64bit": "electron-builder --windows portable nsis zip --x64 -c.extraMetadata.main=build/main.js",
-		"pack-mac": "electron-builder --macos dmg zip -c.extraMetadata.main=build/main.js -c.mac.identity=null",
-		"pack-linux": "electron-builder --linux deb AppImage zip -c.extraMetadata.main=build/main.js"
+		"pack-windows-32bit-portable": "electron-builder --windows portable --ia32 -c.extraMetadata.main=build/main.js",
+		"pack-windows-32bit-installer": "electron-builder --windows nsis --ia32 -c.extraMetadata.main=build/main.js",
+		"pack-windows-32bit-zip": "electron-builder --windows zip --ia32 -c.extraMetadata.main=build/main.js",
+		"pack-windows-64bit-portable": "electron-builder --windows portable --x64 -c.extraMetadata.main=build/main.js",
+		"pack-windows-64bit-installer": "electron-builder --windows nsis --x64 -c.extraMetadata.main=build/main.js",
+		"pack-windows-64bit-zip": "electron-builder --windows zip --x64 -c.extraMetadata.main=build/main.js",
+		"pack-macos-dmg": "electron-builder --macos dmg -c.extraMetadata.main=build/main.js -c.mac.identity=null",
+		"pack-macos-zip": "electron-builder --macos zip -c.extraMetadata.main=build/main.js -c.mac.identity=null",
+		"pack-linux-deb": "electron-builder --linux deb -c.extraMetadata.main=build/main.js",
+		"pack-linux-appimage": "electron-builder --linux AppImage -c.extraMetadata.main=build/main.js",
+		"pack-linux-zip": "electron-builder --linux zip -c.extraMetadata.main=build/main.js"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
