@@ -1,6 +1,3 @@
-// import installExtension, {REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS} from 'electron-devtools-installer';
-const {default: installExtension, REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS} = require('electron-devtools-installer');
-
 
 const electron = require('electron');
 // const {app, Menu, Tray, BrowserWindow, ipcMain} = require('electron');
@@ -39,7 +36,8 @@ function createWindow() {
 		// frame: false,
 		// transparent: true,
 		// resizable: false,
-		// icon: path.join(__dirname, '256x256.png'),
+		icon: path.join(__dirname, 'app.png'),
+		// icon: path.join(__dirname, 'app.ico'),
 		webPreferences: {
 			nodeIntegration: true,
 			// preload: __dirname + '/preload.js',
@@ -77,6 +75,7 @@ function createWindow() {
 	})
 	
 	if (isDev) {
+		const {default: installExtension, REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS} = require('electron-devtools-installer');
 		try {
 			installExtension(REACT_DEVELOPER_TOOLS).then((name) => {
 				console.log(`Added Extension:  ${name}`);

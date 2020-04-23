@@ -7,6 +7,10 @@
 	"private": true,
 	"main": "public/main.js",
 	"homepage": "./",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SamirDjelal/Reactron.git"
+	},
 	"keywords": [
 		"app",
 		"react",
@@ -22,6 +26,7 @@
 		"electron": "^8.2.3",
 		"electron-devtools-installer": "^3.0.0",
 		"electron-is-dev": "^1.2.0",
+		"javascript-obfuscator": "^0.27.4",
 		"node-sass": "^4.13.1",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
@@ -33,8 +38,9 @@
 	"scripts": {
 		"dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
 		"start": "react-scripts start",
-		"npm-rebuild": "npm rebuild",
+		"rebuild-packages": "npm rebuild",
 		"build": "react-scripts build",
+		"obfuscator": "javascript-obfuscator build/main.js --output build/main.js",
 		"pack-all": "electron-builder -mwl -c.extraMetadata.main=build/main.js -c.mac.identity=null",
 		"pack-win-32bit": "electron-builder --windows portable nsis zip --ia32 -c.extraMetadata.main=build/main.js",
 		"pack-win-64bit": "electron-builder --windows portable nsis zip --x64 -c.extraMetadata.main=build/main.js",
