@@ -12,7 +12,9 @@
 		"react",
 		"electron"
 	],
-	"dependencies": {},
+	"dependencies": {
+		"react-router": "^5.1.2"
+	},
 	"devDependencies": {
 		"@reduxjs/toolkit": "^1.3.5",
 		"axios": "^0.19.2",

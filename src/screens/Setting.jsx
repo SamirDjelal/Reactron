@@ -1,13 +1,14 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
+import {withRouter} from "react-router";
 
 class Setting extends Component {
 	render() {
 		return (
-			<div>
+			<Fragment>
 				Setting
-			</div>
+			</Fragment>
 		);
 	}
 }
 
-export default Setting;
+export default withRouter(Setting);
