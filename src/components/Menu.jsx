@@ -8,12 +8,10 @@ class Menu extends Component {
 		return (
 			<div className="Menu">
 				<Link to="/">
-					<div className={"item home " + (this.props.location.pathname === '/' && 'active')}>H
-					</div>
+					<div className={"item home " + (this.props.location.pathname === '/' && 'active')}/>
 				</Link>
 				<Link to="/setting">
-					<div className={"item setting " + (this.props.location.pathname === '/setting' && 'active')}>S
-					</div>
+					<div className={"item setting " + (this.props.location.pathname === '/setting' && 'active')}/>
 				</Link>
 			</div>
 		);

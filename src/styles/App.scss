@@ -5,7 +5,8 @@
 	.Menu {
 		background-color: #252F3F;
 		width: 60px;
-		padding-top: 20px;
+		//padding-top: 20px;
+		padding-top: 15px;
 		height: 100%;
 		display: flex;
 		//justify-content: center;
@@ -29,13 +30,28 @@
 			justify-content: center;
 			align-items: center;
 			cursor: pointer;
+			background-repeat: no-repeat;
+			background-position: center;
+			//background-size: 25px auto;
+			background-size: 23px auto;
+			opacity: .6;
+
+			&.home {
+				background-image: url('../assets/images/home.svg');
+			}
+
+			&.setting {
+				background-image: url('../assets/images/setting.svg');
+			}
 
 			&:hover {
 				background-color: #161E2E;
+				opacity: .9;
 			}
 
 			&.active {
 				background-color: #161E2E;
+				opacity: .9;
 			}
 		}
 	}
@@ -49,10 +65,11 @@
 		padding: 20px;
 		margin-left: 60px;
 
-		h2{
+		h2 {
 			color: #252f3f;
 		}
-		button{
+
+		button {
 			border: 0;
 			width: 50px;
 			line-height: 30px;
