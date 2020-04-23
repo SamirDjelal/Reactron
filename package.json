@@ -1,0 +1,73 @@
+{
+	"name": "app",
+	"description": "App boilerplate",
+	"author": "Samir Djelal <samir.djelal.webdesign@gmail.com>",
+	"url": "https://samirdjelal.com",
+	"version": "0.1.0",
+	"private": true,
+	"main": "public/main.js",
+	"homepage": "./",
+	"keywords": [
+		"app",
+		"react",
+		"electron"
+	],
+	"dependencies": {},
+	"devDependencies": {
+		"@reduxjs/toolkit": "^1.3.5",
+		"axios": "^0.19.2",
+		"cross-env": "^7.0.2",
+		"electron": "^8.2.3",
+		"electron-is-dev": "^1.2.0",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-redux": "^7.2.0",
+		"react-scripts": "3.4.1",
+		"wait-on": "^4.0.2"
+	},
+	"scripts": {
+		"dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+		"start": "react-scripts start",
+		"npm-rebuild": "npm rebuild",
+		"build": "react-scripts build",
+		"pack-all": "electron-builder -mwl -c.extraMetadata.main=build/main.js -c.mac.identity=null",
+		"pack-win-32bit": "electron-builder --windows portable nsis zip --ia32 -c.extraMetadata.main=build/main.js",
+		"pack-win-64bit": "electron-builder --windows portable nsis zip --x64 -c.extraMetadata.main=build/main.js",
+		"pack-mac": "electron-builder --macos dmg zip -c.extraMetadata.main=build/main.js -c.mac.identity=null",
+		"pack-linux": "electron-builder --linux deb AppImage zip -c.extraMetadata.main=build/main.js"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"build": {
+		"productName": "app",
+		"appId": "com.samirdjelal.app",
+		"files": [
+			"build/**/*",
+			"node_modules/**/*"
+		],
+		"directories": {
+			"buildResources": "build"
+		},
+		"copyright": "Copyright © 2019 ${author}",
+		"mac": {
+			"icon": "./build/app.icns",
+			"category": "public.app-category.utilities"
+		},
+		"win": {
+			"icon": "./build/app.png"
+		}
+	}
+}
