@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {withRouter} from "react-router";
 
 class Titlebar extends Component {
 	constructor(props) {
@@ -58,4 +59,4 @@ class Titlebar extends Component {
 	
 }
 
-export default Titlebar;
+export default withRouter(Titlebar);

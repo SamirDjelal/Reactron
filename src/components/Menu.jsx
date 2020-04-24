@@ -13,15 +13,13 @@ class Menu extends Component {
 				
 				<Link to="/">
 					
-					<div className={"item home " + (pathname === '/' && 'active')}
-					     title="Home"/>
+					<div className={"item home " + (pathname === '/' && 'active')} title="Home"/>
 				
 				</Link>
 				
 				<Link to="/setting">
 					
-					<div className={"item setting " + (pathname === '/setting' && 'active')}
-					     title="Setting"/>
+					<div className={"item setting " + (pathname === '/setting' && 'active')} title="Setting"/>
 				
 				</Link>
 			

@@ -2,9 +2,9 @@ import React, {Component, Fragment} from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import './styles/App.scss';
 import Menu from './components/Menu'
+import Titlebar from "./components/Titlebar";
 import Home from "./screens/Home";
 import Setting from "./screens/Setting";
-import Titlebar from "./components/Titlebar";
 
 
 class App extends Component {
