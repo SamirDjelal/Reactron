@@ -15,6 +15,6 @@ const appState = createSlice({
 	}
 })
 
-export const {inc, dec, async} = appState.actions;
+export const {inc, dec} = appState.actions;
 
 export default appState.reducer

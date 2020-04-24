@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
-import {inc, dec, async} from '../store/appReducer';
+import {inc, dec} from '../store/appReducer';
 import {withRouter} from "react-router";
 
 class Home extends Component {
@@ -28,5 +28,5 @@ export default withRouter(connect(
 	state => ({
 		val: state.app.val
 	}),
-	{inc, dec, async}
+	{inc, dec}
 )(Home));
