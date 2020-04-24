@@ -7,6 +7,7 @@
 	border-top: 1px solid #161e2e;
 	border-right: 1px solid #161e2e;
 	border-left: 1px solid #161e2e;
+	background-image: url('../assets/images/texture.png');
 
 	.Icon {
 		width: 80px;
@@ -115,6 +116,8 @@
 	min-height: calc(100% - 30px);
 
 	.Menu {
+			background-image: url('../assets/images/texture2.png');
+
 		background-color: #252F3F;
 		width: 60px;
 		//padding-top: 20px;
