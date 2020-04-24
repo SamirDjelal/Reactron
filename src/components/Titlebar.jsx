@@ -16,13 +16,13 @@ class Titlebar extends Component {
 	render() {
 		return (
 			<div className="Titlebar">
-				<div className="Icon"/>
-				<div className="Title">Reactron App</div>
 				<div className="Controls">
-					<div className="Item Minimize" onClick={this.handleMinimize}/>
-					<div className={"Item Maximize "+(this.state.maximized)} onClick={this.handleMaximize}/>
 					<div className="Item Close" onClick={this.handleClose}/>
+					<div className="Item Minimize" onClick={this.handleMinimize}/>
+					<div className={"Item Maximize " + (this.state.maximized)} onClick={this.handleMaximize}/>
 				</div>
+				<div className="Title">Reactron App</div>
+				<div className="Icon"/>
 			</div>
 		);
 	}

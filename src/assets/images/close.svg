@@ -1,1 +1,17 @@
-<svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><defs><style>.fa-secondary{opacity:.4}</style></defs><path d="M9.21,356.07a31.46,31.46,0,0,0,0,44.48l22.24,22.24a31.46,31.46,0,0,0,44.48,0L176,322.72,109.28,256ZM342.79,111.45,320.55,89.21a31.46,31.46,0,0,0-44.48,0L176,189.28,242.72,256,342.79,155.93a31.46,31.46,0,0,0,0-44.48Z" class="fa-secondary"/><path d="M342.79,356.07a31.46,31.46,0,0,1,0,44.48l-22.24,22.24a31.46,31.46,0,0,1-44.48,0L9.21,155.93a31.46,31.46,0,0,1,0-44.48L31.45,89.21a31.46,31.46,0,0,1,44.48,0Z" class="fa-primary"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-68,-61.5645)">
+        <g id="close">
+            <g transform="matrix(1.09091,0,0,1.09091,-96.7273,-33.3446)">
+                <circle cx="162" cy="98" r="11" style="fill:rgb(255,80,72);fill-opacity:0;"/>
+            </g>
+            <g transform="matrix(0.707107,-0.707107,0.604834,0.604834,-18.8668,86.6529)">
+                <rect x="71.044" y="70.273" width="15.665" height="1.888" style="fill:rgb(142,0,0);"/>
+            </g>
+            <g transform="matrix(-0.707107,-0.707107,0.604834,-0.604834,92.682,172.802)">
+                <rect x="71.044" y="70.273" width="15.665" height="1.888" style="fill:rgb(142,0,0);"/>
+            </g>
+        </g>
+    </g>
+</svg>
