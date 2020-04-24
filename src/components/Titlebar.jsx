@@ -19,9 +19,9 @@ class Titlebar extends Component {
 				<div className="Icon"/>
 				<div className="Title">Reactron App</div>
 				<div className="Controls">
-					<div className="Item Minimize" onClick={this.handleMinimize}>-</div>
-					<div className="Item Maximize" onClick={this.handleMaximize}>O</div>
-					<div className="Item Close" onClick={this.handleClose}>X</div>
+					<div className="Item Minimize" onClick={this.handleMinimize}/>
+					<div className={"Item Maximize "+(this.state.maximized)} onClick={this.handleMaximize}/>
+					<div className="Item Close" onClick={this.handleClose}/>
 				
 				
 				</div>
