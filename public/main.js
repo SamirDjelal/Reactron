@@ -19,14 +19,15 @@ function createWindow() {
 		show: false,
 		// fullscreen: false,
 		// maximizable: false,
-		// frame: false,
-		// transparent: true,
+		frame: false,
+		titleBarStyle: 'hidden',
+		transparent: true,
 		// resizable: false,
 		icon: path.join(__dirname, (process.platform === 'darwin') ? 'app.icns' : 'app.png'),
 		// icon: path.join(__dirname, 'app.ico'),
 		webPreferences: {
 			nodeIntegration: true,
-			// preload: __dirname + '/preload.js',
+			preload: __dirname + '/preload.js',
 			// webSecurity: false,
 			// allowRunningInsecureContent: true,
 			// webviewTag: true,
@@ -36,12 +37,11 @@ function createWindow() {
 	mainWindow.show();
 	mainWindow.setMenu(null);
 	
-	if (isDev) mainWindow.webContents.openDevTools();
 	mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`).then(r => console.log(r));
 	mainWindow.on('closed', () => mainWindow = null);
 	
 	if (process.platform !== 'darwin') global.appTray = new Tray(path.join(__dirname, '256x256.png'))
-	else global.appTray = new Tray(path.join(__dirname, (process.platform === 'darwin') ? '16x16.png' : '24x24.png'));
+	else global.appTray = new Tray(path.join(__dirname, '16x16.png'));
 	
 	const contextMenu = Menu.buildFromTemplate([
 		{
@@ -69,6 +69,7 @@ function createWindow() {
 	})
 	
 	if (isDev) {
+		mainWindow.webContents.openDevTools();
 		const {default: installExtension, REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS} = require('electron-devtools-installer');
 		try {
 			installExtension(REACT_DEVELOPER_TOOLS).then((name) => {

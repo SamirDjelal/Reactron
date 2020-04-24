@@ -1,18 +1,22 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import './styles/App.scss';
 import Menu from './components/Menu'
 import Home from "./screens/Home";
 import Setting from "./screens/Setting";
+import Titlebar from "./components/Titlebar";
 
 
 class App extends Component {
 	render() {
 		return (
-			<div className="App">
-				<Menu/>
-				<Main/>
-			</div>
+			<Fragment>
+				<Titlebar/>
+				<div className="App">
+					<Menu/>
+					<Main/>
+				</div>
+			</Fragment>
 		);
 	}
 }
@@ -24,7 +28,7 @@ const Main = () => {
 			<Switch>
 				<Route path="/" component={Home} exact/>
 				<Route path="/setting" component={Setting} exact/>
-				<Redirect to="/" />
+				<Redirect to="/"/>
 			</Switch>
 		</div>
 	);
