@@ -10,3 +10,8 @@ Reactron uses Electron, React (JSX), Redux, React Router, Webpack and React Hot 
 #### Devtools
 - React Devtools.
 - Redux Devtools.
+
+
+#### Todo
+- Auto Updater.
+- License managing.

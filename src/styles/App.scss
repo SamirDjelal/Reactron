@@ -90,7 +90,7 @@
 
 .App {
 	display: flex;
-	min-height: calc(100% - 30px);
+	height: calc(100% - 30px);
 
 	.Menu {
 		background-image: url('../assets/images/texture2.png');
@@ -154,6 +154,7 @@
 		margin-left: 60px;
 		border-right: 1px solid #161e2e;
 		border-bottom: 1px solid #161e2e;
+		overflow-y: scroll;
 
 		h2 {
 			margin-top: 0;
