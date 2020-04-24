@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
-import {inc, dec} from '../store/appReducer';
+import {inc, dec, async} from '../store/appReducer';
 import {withRouter} from "react-router";
 
 class Home extends Component {
@@ -17,6 +17,7 @@ class Home extends Component {
 				<br/><br/>
 				<button onClick={() => this.props.inc(2)}>inc</button>
 				<button onClick={() => this.props.dec(2)}>dec</button>
+				<button onClick={() => setTimeout(()=>this.props.inc(2), 2000)}>async</button>
 				<br/>
 			</Fragment>
 		);
@@ -27,5 +28,5 @@ export default withRouter(connect(
 	state => ({
 		val: state.app.val
 	}),
-	{inc, dec}
+	{inc, dec, async}
 )(Home));

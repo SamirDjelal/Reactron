@@ -11,10 +11,10 @@ const appState = createSlice({
 		},
 		dec: (state, action) => {
 			return {...state, val: state.val - action.payload}
-		},
+		}
 	}
 })
 
-export const {inc, dec} = appState.actions;
+export const {inc, dec, async} = appState.actions;
 
 export default appState.reducer
