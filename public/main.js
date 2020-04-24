@@ -20,11 +20,10 @@ function createWindow() {
 		// fullscreen: false,
 		// maximizable: false,
 		frame: false,
-		titleBarStyle: 'hidden',
-		transparent: true,
+		// titleBarStyle: 'hidden',
+		// transparent: true,
 		// resizable: false,
 		icon: path.join(__dirname, (process.platform === 'darwin') ? 'app.icns' : 'app.png'),
-		// icon: path.join(__dirname, 'app.ico'),
 		webPreferences: {
 			nodeIntegration: true,
 			preload: __dirname + '/preload.js',
