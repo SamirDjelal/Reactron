@@ -1,9 +1,9 @@
 .Titlebar {
-	height: 35px;
+	height: 30px;
 	background-color: #252f3f;
 	color: #cbd1da;
 	display: flex;
-	line-height: 35px;
+	line-height: 30px;
 	border-top: 1px solid #161e2e;
 	border-right: 1px solid #161e2e;
 	border-left: 1px solid #161e2e;
@@ -12,7 +12,7 @@
 		width: 80px;
 		background-repeat: no-repeat;
 		background-size: 18px 18px;
-		background-position: calc(100% - 8px) 50%;
+		background-position: calc(100% - 5px) 50%;
 		background-image: url('../assets/images/icon.svg');
 		-webkit-app-region: drag;
 		-webkit-user-select: none;
@@ -23,6 +23,7 @@
 		-webkit-app-region: drag;
 		-webkit-user-select: none;
 		text-align: center;
+		line-height: 30px;
 	}
 
 	.Controls {
@@ -58,7 +59,7 @@
 
 		.Item {
 			//border-left: 1px solid #161e2e;
-			//width: 35px;
+			//width: 30px;
 			cursor: pointer;
 			text-align: center;
 			background-repeat: no-repeat;
@@ -111,7 +112,7 @@
 
 .App {
 	display: flex;
-	min-height: calc(100% - 35px);
+	min-height: calc(100% - 30px);
 
 	.Menu {
 		background-color: #252F3F;
@@ -120,7 +121,7 @@
 		padding-top: 15px;
 		//height: 100%;
 		display: flex;
-		height: calc(100% - 35px);
+		height: calc(100% - 30px);
 		//justify-content: center;
 		flex-direction: column;
 		align-items: center;
