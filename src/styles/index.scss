@@ -1,10 +1,6 @@
 * {
 	outline: none;
 	box-sizing: border-box;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-rendering: optimizeLegibility;
-	//text-shadow: 0 0 .5px;
 }
 
 html {
@@ -19,11 +15,9 @@ body {
 	sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
 	height: 100%;
 	background-color: #F6F7F8;
-	//	border: 1px solid #3d4a5f;
-	//border-radius: 10px;
-	//overflow: hidden;
 }
 
 code {
