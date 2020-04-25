@@ -12,20 +12,25 @@ import {withRouter} from "react-router";
 
 
 class App extends Component {
-	componentDidMount() {
-		if (!this.props.valideLicense && this.props.location.pathname !== '/activation') {
-			this.props.history.push('/activation');
-		}
-	}
+	// componentDidMount() {
+	// 	if (!this.props.valideLicense && this.props.location.pathname !== '/activation') {
+	// 		this.props.history.push('/activation');
+	// 	}
+	// }
 	
 	render() {
+		
 		return (
 			<Fragment>
 				<Titlebar/>
 				<div className="App">
 					<Menu/>
-					<Main pathname={this.props.location.pathname} valideLicense={this.props.valideLicense}
-					      history={this.props.history}/>
+					{
+						(!this.props.valideLicense && this.props.location.pathname !== '/activation')
+							// ? <div className="Main"><Activation/></div>
+							? <Redirect to="/activation"/>
+							: <Main/>
+					}
 				</div>
 			</Fragment>
 		);
@@ -33,10 +38,7 @@ class App extends Component {
 }
 
 
-const Main = ({pathname, valideLicense, history}) => {
-	if (!valideLicense && pathname !== '/activation') {
-		history.push('/activation');
-	}
+const Main = () => {
 	return (
 		<div className="Main">
 			<Switch>
