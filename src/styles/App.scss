@@ -6,22 +6,20 @@
 	color: #e6ebf2;
 	display: flex;
 	line-height: 30px;
-	//border-top: 1px solid #161e2e;
-	//border-right: 1px solid #161e2e;
-	//border-left: 1px solid #161e2e;
-	//background-image: url('../assets/images/texture.png');
 	background-size: 80px auto;
-	
+
 	.Icon {
 		width: 80px;
 		background-repeat: no-repeat;
 		background-size: 18px 18px;
 		background-position: calc(100% - 5px) 50%;
-		//background-image: url('../assets/images/icon.svg');
 		-webkit-app-region: drag;
 		-webkit-user-select: none;
+		//background-image: url('../assets/images/icon.svg');
+		//filter: grayscale(100%);
+		//opacity: .3;
 	}
-	
+
 	.Title {
 		text-shadow: 1px 2px 3px #000000b8;
 		width: calc(100% - 160px);
@@ -30,7 +28,7 @@
 		text-align: center;
 		line-height: 30px;
 	}
-	
+
 	.Controls {
 		width: 80px;
 		display: flex;
@@ -41,31 +39,31 @@
 		//opacity: 0.1;
 		filter: grayscale(70%);
 		transition: filter .3s;
-		
+
 		&:hover {
 			//opacity: 1;
 			filter: grayscale(0%);
-			
+
 			.Item {
-				
+
 				&.Minimize {
 					background-image: url('../assets/images/minimize.svg');
 				}
-				
+
 				&.Maximize {
 					background-image: url('../assets/images/maximize.svg');
-					
+
 					&.true {
 						background-image: url('../assets/images/unmaximize.svg');
 					}
 				}
-				
+
 				&.Close {
 					background-image: url('../assets/images/close.svg');
 				}
 			}
 		}
-		
+
 		.Item {
 			cursor: pointer !important;
 			text-align: center;
@@ -76,34 +74,34 @@
 			height: 12px;
 			margin-right: 10px;
 			border-radius: 50%;
-			
+
 			&.Minimize {
 				background-color: #E2B825;
 			}
-			
+
 			&.Maximize {
 				background-color: #49BA26;
-				
+
 				&.true {
 				}
 			}
-			
+
 			&.Close {
 				background-color: #FF5048;
 			}
 		}
-		
+
 	}
-	
+
 }
 
 .App {
 	display: flex;
 	height: calc(100% - 30px);
-	
+
 	.Menu {
 		//background-image: url('../assets/images/texture2.png');
-		
+
 		//background-color: #252F3F;
 		width: 60px;
 		padding-top: 15px;
@@ -115,12 +113,12 @@
 		//border-left: 1px solid #161e2e;
 		//border-bottom: 1px solid #161e2e;
 		//border-top: 1px solid #161e2e;
-		
+
 		a {
 			color: #cbcbcb;
 			text-decoration: none;
 		}
-		
+
 		.item {
 			width: 40px;
 			height: 40px;
@@ -136,23 +134,25 @@
 			background-size: 23px auto;
 			opacity: .6;
 			transition: opacity .3s, background-color .3s;
-			
+
 			&.home {
 				background-image: url('../assets/images/home.svg');
 			}
-			
+
 			&.setting {
 				background-image: url('../assets/images/setting.svg');
 			}
-			
+
 			&:hover, &.active {
 				background-color: #00000059;
 				opacity: .9;
 			}
 		}
 	}
-	
+
 	.Main {
+		//background-image: url('../assets/images/texture.png');
+		//background-image: url('../assets/images/texture2.png');
 		background-color: #fff;
 		z-index: 99;
 		box-shadow: 0 0 30px -10px #000000b8;
@@ -160,11 +160,10 @@
 		width: calc(100% - 60px);
 		padding: 20px;
 		margin-left: 60px;
-		//border-right: 1px solid #161e2e;
-		//border-bottom: 1px solid #161e2e;
+		word-break: break-word;
 		overflow-y: scroll;
-		
+
 	}
-	
+
 }
 

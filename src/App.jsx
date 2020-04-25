@@ -5,6 +5,8 @@ import Menu from './components/Menu'
 import Titlebar from "./components/Titlebar";
 import Home from "./screens/Home";
 import Setting from "./screens/Setting";
+import Activation from "./screens/Activation";
+import Update from "./screens/Update";
 
 
 class App extends Component {
@@ -28,6 +30,8 @@ const Main = () => {
 			<Switch>
 				<Route path="/" component={Home} exact/>
 				<Route path="/setting" component={Setting} exact/>
+				<Route path="/activation" component={Activation} exact/>
+				<Route path="/update" component={Update} exact/>
 				<Redirect to="/"/>
 			</Switch>
 		</div>
