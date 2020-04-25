@@ -35,9 +35,12 @@
 		-webkit-user-select: none;
 		align-items: center;
 		padding-left: 8px;
-		
-		
+		//opacity: 0.1;
+		filter: grayscale(70%);
+		transition: filter .3s;
 		&:hover {
+			//opacity: 1;
+			filter: grayscale(0%);
 			.Item {
 				
 				&.Minimize {
