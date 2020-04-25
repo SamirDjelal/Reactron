@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Switch, Route, Redirect} from 'react-router-dom';
+import {Switch, Route, Redirect, useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import './styles/App.scss';
 import Menu from './components/Menu'
@@ -8,16 +8,24 @@ import Home from "./screens/Home";
 import Setting from "./screens/Setting";
 import Activation from "./screens/Activation";
 import Update from "./screens/Update";
+import {withRouter} from "react-router";
 
 
 class App extends Component {
+	componentDidMount() {
+		if (!this.props.valideLicense && this.props.location.pathname !== '/activation') {
+			this.props.history.push('/activation');
+		}
+	}
+	
 	render() {
 		return (
 			<Fragment>
 				<Titlebar/>
 				<div className="App">
 					<Menu/>
-					<Main/>
+					<Main pathname={this.props.location.pathname} valideLicense={this.props.valideLicense}
+					      history={this.props.history}/>
 				</div>
 			</Fragment>
 		);
@@ -25,7 +33,11 @@ class App extends Component {
 }
 
 
-const Main = () => {
+const Main = ({pathname, valideLicense, history}) => {
+	// const history = useHistory();
+	if (!valideLicense && pathname !== '/activation') {
+		history.push('/activation');
+	}
 	return (
 		<div className="Main">
 			<Switch>
@@ -40,10 +52,12 @@ const Main = () => {
 }
 
 
-export default connect(
+export default withRouter(connect(
 	state => ({
 		app_name: state.app.name,
-		app_version: state.app.version
+		app_version: state.app.version,
+		license: state.activation.license,
+		valideLicense: state.activation.valideLicense
 	}),
 	{}
-)(App);
+)(App));

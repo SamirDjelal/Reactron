@@ -46,6 +46,7 @@ class Activation extends Component {
 		let license = document.getElementById('licenseField').value;
 		if (!license) return 0;
 		this.props.activateLicense(license);
+		this.props.history.push('/')
 	}
 	
 	handleDeactivateLicense() {
