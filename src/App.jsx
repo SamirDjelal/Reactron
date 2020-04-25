@@ -1,5 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
+import {inc, dec} from "./store/appReducer";
+import {connect} from 'react-redux';
+
 import './styles/App.scss';
 import Menu from './components/Menu'
 import Titlebar from "./components/Titlebar";
@@ -39,4 +42,9 @@ const Main = () => {
 }
 
 
-export default App;
+export default connect(
+	state => ({
+		val: state.app.val
+	}),
+	{inc, dec}
+)(App);
