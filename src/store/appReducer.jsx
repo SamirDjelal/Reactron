@@ -4,7 +4,7 @@ const appState = createSlice({
 	name: 'app',
 	initialState: {
 		val: 10,
-		name: 'Reactron App',
+		name: 'Reactron',
 		version: '1.2'
 	},
 	reducers: {

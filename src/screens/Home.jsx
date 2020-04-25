@@ -8,7 +8,7 @@ class Home extends Component {
 	render() {
 		return (
 			<Fragment>
-				<h2>Reactron App</h2>
+				<h2>{this.props.app_name}</h2>
 				<code>Redux State `val`= {this.props.val}</code>
 				<br/><br/>
 				<button onClick={() => this.props.inc(2)}>Increment</button>

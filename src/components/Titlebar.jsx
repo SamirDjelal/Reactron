@@ -23,7 +23,8 @@ class Titlebar extends Component {
 					<div className="Item Minimize" onClick={this.handleMinimize}/>
 					<div className={"Item Maximize " + (this.state.maximized)} onClick={this.handleMaximize}/>
 				</div>
-				<div className="Title" onDoubleClick={this.handleMaximize}>{this.props.app_name} v{this.props.app_version}</div>
+				<div className="Title" onDoubleClick={this.handleMaximize}>{this.props.app_name} <span
+					className="Version">v{this.props.app_version}</span></div>
 				<div className="Icon"/>
 			</div>
 		);
