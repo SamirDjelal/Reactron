@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Switch, Route, Redirect, useHistory} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import './styles/App.scss';
 import Menu from './components/Menu'
@@ -34,7 +34,6 @@ class App extends Component {
 
 
 const Main = ({pathname, valideLicense, history}) => {
-	// const history = useHistory();
 	if (!valideLicense && pathname !== '/activation') {
 		history.push('/activation');
 	}
