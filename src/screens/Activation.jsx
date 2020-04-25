@@ -9,13 +9,17 @@ class Activation extends Component {
 		return (
 			<Fragment>
 				<h2>Activation</h2>
-				
-				<button onClick={() => this.props.activateLicense('XXXX-XXXX-XXXX-XXXX')}>Activate</button>
-				<button onClick={() => this.props.desactivateLicense()}>Desactivate</button>
+				<input type="text" id="licenseField" defaultValue={this.props.license}/>
 				<br/>
+				<br/>
+				<button onClick={() => this.props.activateLicense(document.getElementById('licenseField').value)}>Activate
+				</button>
+				<button onClick={() => this.props.desactivateLicense()}>Desactivate</button>
+				<br/> <br/>
+				
 				Serial : {this.props.license}
 				<br/>
-				valideLicense : {this.props.valideLicense ? 'valide' : 'invalide' }
+				valideLicense : {this.props.valideLicense ? 'valide' : 'invalide'}
 				
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium autem doloribus ducimus error
 					excepturi iste maiores neque numquam officia officiis porro repudiandae sequi, veniam. Aperiam
@@ -25,6 +29,8 @@ class Activation extends Component {
 			</Fragment>
 		);
 	}
+	
+	
 }
 
 
