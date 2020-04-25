@@ -1,13 +1,13 @@
 .Titlebar {
 	height: 30px;
-	background-color: #252f3f;
+	//background-color: #252f3f;
 	color: #cbd1da;
 	display: flex;
 	line-height: 30px;
-	border-top: 1px solid #161e2e;
-	border-right: 1px solid #161e2e;
-	border-left: 1px solid #161e2e;
-	background-image: url('../assets/images/texture.png');
+	//border-top: 1px solid #161e2e;
+	//border-right: 1px solid #161e2e;
+	//border-left: 1px solid #161e2e;
+	//background-image: url('../assets/images/texture.png');
 	background-size: 80px auto;
 	
 	.Icon {
@@ -15,7 +15,7 @@
 		background-repeat: no-repeat;
 		background-size: 18px 18px;
 		background-position: calc(100% - 5px) 50%;
-		background-image: url('../assets/images/icon.svg');
+		//background-image: url('../assets/images/icon.svg');
 		-webkit-app-region: drag;
 		-webkit-user-select: none;
 	}
@@ -94,9 +94,9 @@
 	height: calc(100% - 30px);
 	
 	.Menu {
-		background-image: url('../assets/images/texture2.png');
+		//background-image: url('../assets/images/texture2.png');
 		
-		background-color: #252F3F;
+		//background-color: #252F3F;
 		width: 60px;
 		padding-top: 15px;
 		display: flex;
@@ -104,9 +104,9 @@
 		flex-direction: column;
 		align-items: center;
 		position: fixed;
-		border-left: 1px solid #161e2e;
-		border-bottom: 1px solid #161e2e;
-		border-top: 1px solid #161e2e;
+		//border-left: 1px solid #161e2e;
+		//border-bottom: 1px solid #161e2e;
+		//border-top: 1px solid #161e2e;
 		
 		a {
 			color: #cbcbcb;
@@ -137,24 +137,23 @@
 				background-image: url('../assets/images/setting.svg');
 			}
 			
-			&:hover {
-				background-color: #161E2E;
-				opacity: .9;
-			}
-			
-			&.active {
-				background-color: #161E2E;
+			&:hover, &.active {
+				background-color: #00000059;
 				opacity: .9;
 			}
 		}
 	}
 	
 	.Main {
+		background-color: #fff;
+		z-index: 99;
+		box-shadow: 0 0 30px -10px #000000b8;
+		border-top-left-radius: 20px;
 		width: calc(100% - 60px);
 		padding: 20px;
 		margin-left: 60px;
-		border-right: 1px solid #161e2e;
-		border-bottom: 1px solid #161e2e;
+		//border-right: 1px solid #161e2e;
+		//border-bottom: 1px solid #161e2e;
 		overflow-y: scroll;
 		
 		h2 {
