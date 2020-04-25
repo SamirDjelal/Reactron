@@ -12,18 +12,20 @@ button {
 	border: 0;
 	min-width: 50px;
 	line-height: 30px;
-	padding: 0 10px;
-	background-color: #cbd1da;
-	border-radius: 3px;
-	color: #161e2e;
+	padding: 0 15px;
+	background-color: #5c7084;
+	border-radius: 20px;
+	color: #fff;
+	font-size: 12px;
 	cursor: pointer;
 	margin-right: 10px;
-	border-bottom: 3px solid #8591a2;
-	background-image: linear-gradient(150deg, #bdc3c7, #959fab);
+	//border-bottom: 3px solid #8591a2;
+	//background-image: linear-gradient(150deg, #bdc3c7, #959fab);
 	//&:hover {
 	//	background-image: linear-gradient(-30deg, #bdc3c7, #959fab);
 	//}
 	&:active {
-		background-image: linear-gradient(-30deg, #bdc3c7, #959fab);
+		background-color: #395066;
+		//background-image: linear-gradient(-30deg, #bdc3c7, #959fab);
 	}
 }
