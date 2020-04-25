@@ -22,7 +22,9 @@ class Home extends Component {
 
 export default withRouter(connect(
 	state => ({
-		val: state.app.val
+		val: state.app.val,
+		app_name: state.app.name,
+		app_version: state.app.version
 	}),
 	{inc, dec}
 )(Home));

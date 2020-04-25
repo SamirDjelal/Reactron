@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {withRouter} from "react-router";
+import {connect} from 'react-redux';
 
 class Titlebar extends Component {
 	constructor(props) {
@@ -22,7 +23,7 @@ class Titlebar extends Component {
 					<div className="Item Minimize" onClick={this.handleMinimize}/>
 					<div className={"Item Maximize " + (this.state.maximized)} onClick={this.handleMaximize}/>
 				</div>
-				<div className="Title" onDoubleClick={this.handleMaximize}>Reactron App</div>
+				<div className="Title" onDoubleClick={this.handleMaximize}>{this.props.app_name} v{this.props.app_version}</div>
 				<div className="Icon"/>
 			</div>
 		);
@@ -59,4 +60,10 @@ class Titlebar extends Component {
 	
 }
 
-export default withRouter(Titlebar);
+export default withRouter(connect(
+	state => ({
+		app_name: state.app.name,
+		app_version: state.app.version
+	}),
+	{}
+)(Titlebar));

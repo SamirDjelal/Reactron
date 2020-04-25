@@ -3,7 +3,9 @@ import {createSlice} from "@reduxjs/toolkit";
 const appState = createSlice({
 	name: 'app',
 	initialState: {
-		val: 11
+		val: 10,
+		name: 'Reactron App',
+		version: '1.2'
 	},
 	reducers: {
 		inc: (state, action) => {

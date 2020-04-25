@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {withRouter} from "react-router";
+import {connect} from 'react-redux';
 
 class Menu extends Component {
 	
@@ -29,4 +30,10 @@ class Menu extends Component {
 	
 }
 
-export default withRouter(Menu);
+export default withRouter(connect(
+	state => ({
+		app_name: state.app.name,
+		app_version: state.app.version
+	}),
+	{}
+)(Menu));

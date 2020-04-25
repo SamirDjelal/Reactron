@@ -10,12 +10,12 @@ const activationState = createSlice({
 		activateLicense: (state, action) => {
 			return {...state, license: action.payload, valideLicense: true}
 		},
-		desactivateLicense: (state) => {
+		deactivateLicense: (state) => {
 			return {...state, license: '', valideLicense: false}
 		}
 	}
 })
 
-export const {activateLicense, desactivateLicense} = activationState.actions;
+export const {activateLicense, deactivateLicense} = activationState.actions;
 
 export default activationState.reducer

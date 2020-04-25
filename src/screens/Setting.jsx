@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {withRouter} from "react-router";
 import {Link} from "react-router-dom";
+import {connect} from 'react-redux';
 
 class Setting extends Component {
 	render() {
@@ -29,4 +30,10 @@ class Setting extends Component {
 	}
 }
 
-export default withRouter(Setting);
+export default withRouter(connect(
+	state => ({
+		app_name: state.app.name,
+		app_version: state.app.version
+	}),
+	{}
+)(Setting));
