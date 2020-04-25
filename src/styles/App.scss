@@ -1,7 +1,9 @@
+@import "./Components.scss";
+
 .Titlebar {
 	height: 30px;
 	//background-color: #252f3f;
-	color: #cbd1da;
+	color: #e6ebf2;
 	display: flex;
 	line-height: 30px;
 	//border-top: 1px solid #161e2e;
@@ -21,6 +23,7 @@
 	}
 	
 	.Title {
+		text-shadow: 1px 2px 3px #000000b8;
 		width: calc(100% - 160px);
 		-webkit-app-region: drag;
 		-webkit-user-select: none;
@@ -38,9 +41,11 @@
 		//opacity: 0.1;
 		filter: grayscale(70%);
 		transition: filter .3s;
+		
 		&:hover {
 			//opacity: 1;
 			filter: grayscale(0%);
+			
 			.Item {
 				
 				&.Minimize {
@@ -159,22 +164,6 @@
 		//border-bottom: 1px solid #161e2e;
 		overflow-y: scroll;
 		
-		h2 {
-			margin-top: 0;
-			color: #252f3f;
-		}
-		
-		button {
-			border: 0;
-			width: 50px;
-			line-height: 30px;
-			background-color: #cbd1da;
-			border-radius: 3px;
-			color: #161e2e;
-			cursor: pointer;
-			margin-right: 10px;
-			border-bottom: 3px solid #9ba5b3;
-		}
 	}
 	
 }

@@ -6,6 +6,7 @@ Just another React-Electron Boilerplate.
 
 Reactron uses Electron, React (JSX), Redux, React Router, Webpack and React Hot Loader for rapid application development.
 
+![Reactron Interface](screenshot.png)
 
 #### Devtools
 - React Devtools.
