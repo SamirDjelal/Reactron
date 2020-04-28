@@ -5,7 +5,7 @@ const activationState = createSlice({
 	initialState: {
 		// license: '',
 		// valideLicense: false
-		license: 'xxx',
+		license: '1234-1234-1234-1234-1234',
 		valideLicense: true
 	},
 	reducers: {

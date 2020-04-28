@@ -19,12 +19,12 @@ class Activation extends Component {
 					want to use it on a different
 					computer.</p>
 				
-				<div style={{marginBottom: 20}}>
+				<div style={{marginBottom: 20}} className={this.props.valideLicense ? 'hide' : ''}>
 					<label style={{display: 'block', marginBottom: 7}} htmlFor="licenseField">License key</label>
 					<input type="text" id="licenseField" defaultValue={this.props.license} style={{width: 500}}/>
 				</div>
 				
-				<div style={{marginBottom: 50}}>
+				<div style={{marginBottom: 20}}>
 					<button onClick={this.handleActivateLicense} className={this.props.valideLicense ? 'hide' : ''}>Activate
 						License
 					</button>
@@ -51,8 +51,8 @@ class Activation extends Component {
 	
 	handleDeactivateLicense() {
 		document.getElementById('licenseField').value = '';
-		this.props.deactivateLicense();
 		// todo: release the serial seat in the remote host.
+		this.props.deactivateLicense();
 	}
 	
 	
