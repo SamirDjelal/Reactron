@@ -1,6 +1,6 @@
 {
-	"name": "app",
-	"description": "App boilerplate",
+	"name": "reactron",
+	"description": "React-Electron boilerplate",
 	"author": "Samir Djelal <samir.djelal.webdesign@gmail.com>",
 	"url": "https://samirdjelal.com",
 	"version": "0.1.0",
@@ -18,7 +18,9 @@
 		"electron"
 	],
 	"dependencies": {
-		"electron-is-dev": "^1.2.0"
+		"electron-is-dev": "^1.2.0",
+		"electron-updater": "^4.3.1",
+		"electron-log": "^4.1.1"
 	},
 	"devDependencies": {
 		"@reduxjs/toolkit": "^1.3.5",
@@ -82,10 +84,23 @@
 		"copyright": "Copyright © 2019 ${author}",
 		"mac": {
 			"icon": "./build/icons/app.icns",
-			"category": "public.app-category.utilities"
+			"category": "public.app-category.utilities",
+			"target": [
+				"zip",
+				"dmg"
+			]
 		},
 		"win": {
 			"icon": "./build/icons/app.png"
-		}
+		},
+		"nsis": {
+			"perMachine": true
+		},
+		"publish": [
+			{
+				"provider": "generic",
+				"url": "http://127.0.0.1:8080/"
+			}
+		]
 	}
 }

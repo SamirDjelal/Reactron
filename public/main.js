@@ -1,10 +1,17 @@
 const electron = require('electron');
 const {app, Menu, Tray, BrowserWindow, ipcMain} = require('electron');
+const {autoUpdater} = require('electron-updater');
+const log = require('electron-log');
 
 // const axios = require("axios");
 const path = require('path');
 const isDev = require('electron-is-dev');
 const globalShortcut = electron.globalShortcut
+
+
+autoUpdater.logger = log;
+autoUpdater.logger.transports.file.level = 'info';
+// log.info('App starting...');
 
 
 app.allowRendererProcessReuse = true;
@@ -85,7 +92,10 @@ function createWindow() {
 			});
 		} catch (e) {
 		}
+	} else {
+		autoUpdater.checkForUpdates().then(r => console.log(r));
 	}
+	
 }
 
 app.on('ready', createWindow);
@@ -113,3 +123,36 @@ ipcMain.on('CHECK_UPDATE', (event, arg) => {
 	console.log(query);
 	event.reply('CHECK_UPDATE', 'pong')
 })
+
+
+autoUpdater.on('checking-for-update', () => {
+	sendStatusToWindow('Checking for update...');
+})
+autoUpdater.on('update-available', (ev, info) => {
+	sendStatusToWindow('Update available.');
+})
+autoUpdater.on('update-not-available', (ev, info) => {
+	sendStatusToWindow('Update not available.');
+})
+autoUpdater.on('error', (ev, err) => {
+	sendStatusToWindow('Error in auto-updater.');
+})
+autoUpdater.on('download-progress', (ev, progressObj) => {
+	sendStatusToWindow('Download progress...');
+})
+autoUpdater.on('update-downloaded', (ev, info) => {
+	sendStatusToWindow('Update downloaded; will install in 5 seconds');
+	// Wait 5 seconds, then quit and install
+	// In your application, you don't need to wait 5 seconds.
+	// You could call autoUpdater.quitAndInstall(); immediately
+	setTimeout(function () {
+		autoUpdater.quitAndInstall();
+	}, 5000)
+});
+
+
+function sendStatusToWindow(text) {
+	// log.info(text);
+	console.log(text);
+	// mainWindow.webContents.send('message', text);
+}

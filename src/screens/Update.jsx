@@ -19,7 +19,9 @@ class Update extends Component {
 		
 	}
 	
-	
+	/**
+	 * params
+	 */
 	checkForUpdates() {
 		const data = {
 			name: this.props.app_name,

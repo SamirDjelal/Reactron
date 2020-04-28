@@ -37,7 +37,6 @@ class App extends Component {
 	}
 }
 
-
 const Main = () => {
 	return (
 		<div className="Main">
