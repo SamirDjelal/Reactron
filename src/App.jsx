@@ -13,7 +13,7 @@ import {withRouter} from "react-router";
 
 class App extends Component {
 	// componentDidMount() {
-	// 	if (!this.props.valideLicense && this.props.location.pathname !== '/activation') {
+	// 	if (!this.props.validLicense && this.props.location.pathname !== '/activation') {
 	// 		this.props.history.push('/activation');
 	// 	}
 	// }
@@ -26,7 +26,7 @@ class App extends Component {
 				<div className="App">
 					<Menu/>
 					{
-						(!this.props.valideLicense && this.props.location.pathname !== '/activation')
+						(!this.props.validLicense && this.props.location.pathname !== '/activation')
 							// ? <div className="Main"><Activation/></div>
 							? <Redirect to="/activation"/>
 							: <Main/>
@@ -57,7 +57,7 @@ export default withRouter(connect(
 		app_name: state.app.name,
 		app_version: state.app.version,
 		license: state.activation.license,
-		valideLicense: state.activation.valideLicense
+		validLicense: state.activation.validLicense
 	}),
 	{}
 )(App));

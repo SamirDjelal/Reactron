@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from 'react';
 import {withRouter} from "react-router";
-// import {inc, dec} from "../store/appReducer";
 import {connect} from 'react-redux';
 import {activateLicense, deactivateLicense} from "../store/activationReducer";
 
@@ -19,24 +18,24 @@ class Activation extends Component {
 					want to use it on a different
 					computer.</p>
 				
-				<div style={{marginBottom: 20}} className={this.props.valideLicense ? 'hide' : ''}>
+				<div style={{marginBottom: 20}} className={this.props.validLicense ? 'hide' : ''}>
 					<label style={{display: 'block', marginBottom: 7}} htmlFor="licenseField">License key</label>
 					<input type="text" id="licenseField" defaultValue={this.props.license} style={{width: 500}}/>
 				</div>
 				
 				<div style={{marginBottom: 20}}>
-					<button onClick={this.handleActivateLicense} className={this.props.valideLicense ? 'hide' : ''}>Activate
+					<button onClick={this.handleActivateLicense} className={this.props.validLicense ? 'hide' : ''}>Activate
 						License
 					</button>
 					<button onClick={this.handleDeactivateLicense}
-					        className={this.props.valideLicense ? '' : 'hide'}>Desactivate License
+					        className={this.props.validLicense ? '' : 'hide'}>Desactivate License
 					</button>
 				</div>
 				
 				<code>
 					Serial : {this.props.license}
 					<br/>
-					valideLicense : {this.props.valideLicense ? 'valide' : 'invalide'}
+					validLicense : {this.props.validLicense ? 'valide' : 'invalide'}
 				</code>
 			</Fragment>
 		);
@@ -64,7 +63,7 @@ export default withRouter(connect(
 		app_name: state.app.name,
 		app_version: state.app.version,
 		license: state.activation.license,
-		valideLicense: state.activation.valideLicense
+		validLicense: state.activation.validLicense
 	}),
 	{activateLicense, deactivateLicense}
 )(Activation));

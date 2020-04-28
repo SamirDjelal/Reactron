@@ -4,16 +4,16 @@ const activationState = createSlice({
 	name: 'activation',
 	initialState: {
 		// license: '',
-		// valideLicense: false
+		// validLicense: false
 		license: '1234-1234-1234-1234-1234',
-		valideLicense: true
+		validLicense: true
 	},
 	reducers: {
 		activateLicense: (state, action) => {
-			return {...state, license: action.payload, valideLicense: true}
+			return {...state, license: action.payload, validLicense: true}
 		},
 		deactivateLicense: (state) => {
-			return {...state, license: '', valideLicense: false}
+			return {...state, license: '', validLicense: false}
 		}
 	}
 })
