@@ -1,5 +1,5 @@
 const electron = require('electron');
-const {app, Menu, Tray, BrowserWindow} = require('electron');
+const {app, Menu, Tray, BrowserWindow, ipcMain} = require('electron');
 
 // const axios = require("axios");
 const path = require('path');
@@ -23,7 +23,7 @@ function createWindow() {
 		// titleBarStyle: 'hidden',
 		// transparent: true,
 		// resizable: false,
-		icon: path.join(__dirname, (process.platform === 'darwin') ? 'app.icns' : 'app.png'),
+		icon: path.join(__dirname, (process.platform === 'darwin') ? 'icons/app.icns' : 'icons/app.png'),
 		webPreferences: {
 			nodeIntegration: true,
 			preload: __dirname + '/preload.js',
@@ -39,8 +39,8 @@ function createWindow() {
 	mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`).then(r => console.log(r));
 	mainWindow.on('closed', () => mainWindow = null);
 	
-	if (process.platform !== 'darwin') global.appTray = new Tray(path.join(__dirname, '256x256.png'))
-	else global.appTray = new Tray(path.join(__dirname, '16x16.png'));
+	if (process.platform !== 'darwin') global.appTray = new Tray(path.join(__dirname, 'icons/256x256.png'))
+	else global.appTray = new Tray(path.join(__dirname, 'icons/16x16.png'));
 	
 	const contextMenu = Menu.buildFromTemplate([
 		{
@@ -103,9 +103,11 @@ app.on('activate', () => {
 	if (mainWindow === null) {
 		createWindow();
 	}
-	
-	
 });
 
-// if (isDev) { app.setAppUserModelId('com.samirdjelal.the_movie'); }
 
+ipcMain.on('CHECK_UPDATE', (event, arg) => {
+	const query = encodeURI(`name=${arg.name}&version=${arg.version}&platform=${process.platform}`);
+	console.log(query);
+	event.reply('CHECK_UPDATE', 'pong')
+})

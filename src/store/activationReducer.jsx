@@ -3,8 +3,10 @@ import {createSlice} from "@reduxjs/toolkit";
 const activationState = createSlice({
 	name: 'activation',
 	initialState: {
-		license: '',
-		valideLicense: false
+		// license: '',
+		// valideLicense: false
+		license: 'xxx',
+		valideLicense: true
 	},
 	reducers: {
 		activateLicense: (state, action) => {

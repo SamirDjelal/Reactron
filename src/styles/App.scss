@@ -2,7 +2,7 @@
 
 .Titlebar {
 	height: 30px;
-	//background-color: #252f3f;
+	// background-color: #252f3f;
 	color: #e6ebf2;
 	display: flex;
 	line-height: 30px;
@@ -15,9 +15,9 @@
 		background-position: calc(100% - 5px) 50%;
 		-webkit-app-region: drag;
 		-webkit-user-select: none;
-		//background-image: url('../assets/images/icon.svg');
-		//filter: grayscale(100%);
-		//opacity: .3;
+		// background-image: url('../assets/images/icon.svg');
+		// filter: grayscale(100%);
+		// opacity: .3;
 	}
 
 	.Title {

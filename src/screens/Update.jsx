@@ -1,25 +1,53 @@
 import React, {Component, Fragment} from 'react';
 import {withRouter} from "react-router";
 import {connect} from 'react-redux';
+import {resetLastCheck} from "../store/updateReducer";
 
 class Update extends Component {
+	constructor(props) {
+		super(props);
+		this.checkForUpdates = this.checkForUpdates.bind(this);
+	}
+	
+	
+	componentDidMount() {
+		
+		window.ipcRenderer.on('CHECK_UPDATE', (event, arg) => {
+			console.log('UPDATE REPLY', arg);
+			this.props.resetLastCheck()
+		})
+		
+	}
+	
+	
+	checkForUpdates() {
+		const data = {
+			name: this.props.app_name,
+			version: this.props.app_version
+		}
+		window.ipcRenderer.send('CHECK_UPDATE', data)
+	}
+	
 	render() {
 		return (
 			<Fragment>
 				<h2>Update</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci dolorem doloremque iure iusto quidem
-					quisquam sit, totam ut! A, asperiores aut consectetur deleniti enim ex ipsum itaque iure mollitia nisi
-					omnis quae quod similique sit velit! Animi cumque laudantium nihil quaerat quo suscipit, voluptatem. Ad
-					facilis minus quam totam voluptate.</p>
+				
+				<button onClick={this.checkForUpdates}>Check for updates.</button>
+				
+				<p>Last Check: {this.props.lastCheck}</p>
+			
 			</Fragment>
 		);
 	}
+	
 }
 
 export default withRouter(connect(
 	state => ({
 		app_name: state.app.name,
-		app_version: state.app.version
+		app_version: state.app.version,
+		lastCheck: state.update.lastCheck
 	}),
-	{}
+	{resetLastCheck}
 )(Update));

@@ -81,11 +81,11 @@
 		},
 		"copyright": "Copyright © 2019 ${author}",
 		"mac": {
-			"icon": "./build/app.icns",
+			"icon": "./build/icons/app.icns",
 			"category": "public.app-category.utilities"
 		},
 		"win": {
-			"icon": "./build/app.png"
+			"icon": "./build/icons/app.png"
 		}
 	}
 }
