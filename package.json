@@ -81,7 +81,7 @@
 		"directories": {
 			"buildResources": "build"
 		},
-		"copyright": "Copyright © 2019 ${author}",
+		"copyright": "Copyright © 2020 Samir Djelal",
 		"mac": {
 			"icon": "./build/icons/app.icns",
 			"category": "public.app-category.utilities",
