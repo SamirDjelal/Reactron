@@ -118,29 +118,30 @@ app.on('activate', () => {
 });
 
 
-ipcMain.on('CHECK_UPDATE', (event, arg) => {
+ipcMain.on('CHECK_UPDATE', async (event, arg) => {
 	const query = encodeURI(`name=${arg.name}&version=${arg.version}&platform=${process.platform}`);
 	console.log(query);
-	event.reply('CHECK_UPDATE', 'pong')
+	autoUpdater.checkForUpdates().then(r => console.log(r));
+	// event.reply('CHECK_UPDATE', 'pong')
 })
 
 
 autoUpdater.on('checking-for-update', () => {
 	sendStatusToWindow('Checking for update...');
 })
-autoUpdater.on('update-available', (ev, info) => {
+autoUpdater.on('update-available', (event, info) => {
 	sendStatusToWindow('Update available.');
 })
-autoUpdater.on('update-not-available', (ev, info) => {
+autoUpdater.on('update-not-available', (event, info) => {
 	sendStatusToWindow('Update not available.');
 })
-autoUpdater.on('error', (ev, err) => {
+autoUpdater.on('error', (event, err) => {
 	sendStatusToWindow('Error in auto-updater.');
 })
-autoUpdater.on('download-progress', (ev, progressObj) => {
+autoUpdater.on('download-progress', (event, progressObj) => {
 	sendStatusToWindow('Download progress...');
 })
-autoUpdater.on('update-downloaded', (ev, info) => {
+autoUpdater.on('update-downloaded', (event, info) => {
 	sendStatusToWindow('Update downloaded; will install in 5 seconds');
 	// Wait 5 seconds, then quit and install
 	// In your application, you don't need to wait 5 seconds.

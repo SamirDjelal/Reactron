@@ -1,0 +1,6 @@
+
+provider: generic
+name: reactron
+url: http://127.0.0.1/releases
+channel: latest
+updaterCacheDirName: reactron-updater
