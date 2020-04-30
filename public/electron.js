@@ -117,13 +117,12 @@ app.on('activate', () => {
 });
 
 
-ipcMain.on('CHECK_UPDATE', async (event, arg) => {
+ipcMain.on('CHECK_UPDATE', (event, arg) => {
 	autoUpdater.checkForUpdates().then(r => console.log(r));
-	// event.reply('CHECK_UPDATE', 'pong')
 })
 
 
-ipcMain.on('IINSTALL_UPDATE', async (event, arg) => {
+ipcMain.on('IINSTALL_UPDATE', (event, arg) => {
 	autoUpdater.quitAndInstall();
 })
 
@@ -134,12 +133,12 @@ autoUpdater.on('checking-for-update', () => {
 })
 autoUpdater.on('update-available', (event, info) => {
 	console.log('update-available: ', info);
-	mainWindow.webContents.send('UPDATE_STATUS', {type: 'update-available', payload: ''});
+	mainWindow.webContents.send('UPDATE_STATUS', {type: 'update-available', payload: info});
 	
 })
 autoUpdater.on('update-not-available', (event, info) => {
 	console.log('update-not-available: ', info);
-	mainWindow.webContents.send('UPDATE_STATUS', {type: 'update-not-available', payload: ''});
+	mainWindow.webContents.send('UPDATE_STATUS', {type: 'update-not-available', payload: info});
 	
 })
 autoUpdater.on('error', (event, err) => {
@@ -154,7 +153,7 @@ autoUpdater.on('download-progress', (event, progressObj) => {
 })
 autoUpdater.on('update-downloaded', (event, info) => {
 	console.log('update-downloaded: ', info);
-	mainWindow.webContents.send('UPDATE_STATUS', {type: 'update-downloaded', payload: ''});
+	mainWindow.webContents.send('UPDATE_STATUS', {type: 'update-downloaded', payload: info});
 	
 	// Wait 5 seconds, then quit and install
 	// In your application, you don't need to wait 5 seconds.

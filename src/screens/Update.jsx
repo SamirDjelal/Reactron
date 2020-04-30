@@ -47,19 +47,22 @@ class Update extends Component {
 		}
 		
 		let updateStatus = (statusText.hasOwnProperty(this.props.status.type)) ? statusText[this.props.status.type] : '';
-		if (this.props.status.type === 'download-progress') updateStatus = updateStatus + this.props.status.payload;
+		// if (this.props.status.type === 'download-progress') updateStatus = updateStatus + this.props.status.payload;
 		
 		return (
 			<Fragment>
 				<h2>Update</h2>
 				
-				<button onClick={this.checkForUpdates}>Check for updates.</button>
+				{(() => {
+					if (this.props.status.type === 'update-downloaded') {
+						return <button onClick={this.installUpdates}>Install updates and restart</button>
+					} else {
+						return <button onClick={this.checkForUpdates}>Check for updates.</button>
+					}
+				})()}
 				
 				<p>Last Check: {this.props.lastCheck}</p>
 				<p>Status: {updateStatus}</p>
-				
-				{this.props.status.type === 'update-downloaded' &&
-				<button onClick={this.installUpdates}>Install updates and restart</button>}
 			
 			</Fragment>
 		);
