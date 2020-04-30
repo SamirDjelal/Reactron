@@ -9,14 +9,22 @@ import Setting from "./screens/Setting";
 import Activation from "./screens/Activation";
 import Update from "./screens/Update";
 import {withRouter} from "react-router";
+import {setUpdateStatus} from "./store/updateReducer";
 
 
 class App extends Component {
-	// componentDidMount() {
+	componentDidMount() {
+	
+		window.ipcRenderer.on('UPDATE_STATUS', (event, args) => {
+			console.log(args);
+			this.props.setUpdateStatus(args)
+			
+		})
+	
 	// 	if (!this.props.validLicense && this.props.location.pathname !== '/activation') {
 	// 		this.props.history.push('/activation');
 	// 	}
-	// }
+	}
 	
 	render() {
 		
@@ -59,5 +67,5 @@ export default withRouter(connect(
 		license: state.activation.license,
 		validLicense: state.activation.validLicense
 	}),
-	{}
+	{setUpdateStatus}
 )(App));

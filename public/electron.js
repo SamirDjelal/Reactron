@@ -9,9 +9,8 @@ const isDev = require('electron-is-dev');
 const globalShortcut = electron.globalShortcut
 
 
-autoUpdater.logger = log;
-autoUpdater.logger.transports.file.level = 'info';
-// log.info('App starting...');
+// autoUpdater.logger = log;
+// autoUpdater.logger.transports.file.level = 'info';
 
 
 app.allowRendererProcessReuse = true;
@@ -119,41 +118,50 @@ app.on('activate', () => {
 
 
 ipcMain.on('CHECK_UPDATE', async (event, arg) => {
-	const query = encodeURI(`name=${arg.name}&version=${arg.version}&platform=${process.platform}`);
-	console.log(query);
 	autoUpdater.checkForUpdates().then(r => console.log(r));
 	// event.reply('CHECK_UPDATE', 'pong')
 })
 
 
+ipcMain.on('IINSTALL_UPDATE', async (event, arg) => {
+	autoUpdater.quitAndInstall();
+})
+
 autoUpdater.on('checking-for-update', () => {
-	sendStatusToWindow('Checking for update...');
+	console.log('checking-for-update');
+	mainWindow.webContents.send('UPDATE_STATUS', {type: 'checking-for-update', payload: ''});
+	
 })
 autoUpdater.on('update-available', (event, info) => {
-	sendStatusToWindow('Update available.');
+	console.log('update-available: ', info);
+	mainWindow.webContents.send('UPDATE_STATUS', {type: 'update-available', payload: ''});
+	
 })
 autoUpdater.on('update-not-available', (event, info) => {
-	sendStatusToWindow('Update not available.');
+	console.log('update-not-available: ', info);
+	mainWindow.webContents.send('UPDATE_STATUS', {type: 'update-not-available', payload: ''});
+	
 })
 autoUpdater.on('error', (event, err) => {
-	sendStatusToWindow('Error in auto-updater.');
+	console.log('error: ', err);
+	mainWindow.webContents.send('UPDATE_STATUS', {type: 'error', payload: ''});
+	
 })
 autoUpdater.on('download-progress', (event, progressObj) => {
-	sendStatusToWindow('Download progress...');
+	console.log('download-progress: ', progressObj);
+	mainWindow.webContents.send('UPDATE_STATUS', {type: 'download-progress', payload: progressObj});
+	
 })
 autoUpdater.on('update-downloaded', (event, info) => {
-	sendStatusToWindow('Update downloaded; will install in 5 seconds');
+	console.log('update-downloaded: ', info);
+	mainWindow.webContents.send('UPDATE_STATUS', {type: 'update-downloaded', payload: ''});
+	
 	// Wait 5 seconds, then quit and install
 	// In your application, you don't need to wait 5 seconds.
 	// You could call autoUpdater.quitAndInstall(); immediately
-	setTimeout(function () {
-		autoUpdater.quitAndInstall();
-	}, 5000)
+	
+	// setTimeout(function () {
+	// 	autoUpdater.quitAndInstall();
+	// }, 5000)
+	
 });
-
-
-function sendStatusToWindow(text) {
-	// log.info(text);
-	console.log(text);
-	// mainWindow.webContents.send('message', text);
-}
