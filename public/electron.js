@@ -97,7 +97,11 @@ function createWindow() {
 	
 }
 
-app.on('ready', createWindow);
+// app.on('ready', createWindow);
+app.whenReady().then(() => {
+	createWindow();
+})
+
 
 app.on('window-all-closed', () => {
 	// if (process.platform !== 'darwin') {
@@ -116,6 +120,10 @@ app.on('activate', () => {
 	}
 });
 
+
+/*
+* Auto updater functionality.
+*/
 
 ipcMain.on('CHECK_UPDATE', (event, arg) => {
 	autoUpdater.checkForUpdates().then(r => console.log(r));
