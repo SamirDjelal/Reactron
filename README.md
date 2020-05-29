@@ -2,6 +2,8 @@
 
 Just another React-Electron Boilerplate.
 
+![Node.js CI](https://github.com/SamirDjelal/Reactron/workflows/Node.js%20CI/badge.svg)
+
 #### Why Reactron?
 
 Reactron uses Electron, React (JSX), Redux, React Router, Webpack and React Hot Loader for rapid application development.
