@@ -2,7 +2,7 @@
 
 Just another React-Electron Boilerplate.
 
-![build](https://github.com/SamirDjelal/Reactron/workflows/Node.js%20CI/badge.svg)
+![Build](https://github.com/SamirDjelal/Reactron/workflows/Build/badge.svg)
 
 #### Why Reactron?
 
